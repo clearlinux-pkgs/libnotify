@@ -1,0 +1,46 @@
+From 689507bf84a75192e6afa74fdcfe951b6d44db25 Mon Sep 17 00:00:00 2001
+From: Ikey Doherty <michael.i.doherty@intel.com>
+Date: Thu, 3 Mar 2016 14:46:09 +0000
+Subject: [PATCH] Disable the test programs, we're not using gtk3
+
+Signed-off-by: Ikey Doherty <michael.i.doherty@intel.com>
+---
+ Makefile.am  | 2 +-
+ configure.ac | 6 ++----
+ 2 files changed, 3 insertions(+), 5 deletions(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 9e12a02..609fae0 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,6 +1,6 @@
+ ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
+ 
+-SUBDIRS = libnotify docs tools tests
++SUBDIRS = libnotify docs tools
+ 
+ pcdata_DATA = libnotify.pc
+ pcdatadir = $(libdir)/pkgconfig
+diff --git a/configure.ac b/configure.ac
+index dcc1667..76a636c 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -93,13 +93,11 @@ pkg_modules="gdk-pixbuf-2.0 glib-2.0 >= $REQ_GLIB_VERSION gio-2.0 >= $REQ_GLIB_V
+ AC_SUBST([pkg_modules])
+ PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
+ 
+-tests_modules="gtk+-3.0 >= $REQ_GTK_VERSION"
+-PKG_CHECK_MODULES(TESTS, [$tests_modules])
+-
+ GLIB_GENMARSHAL=`pkg-config --variable=glib_genmarshal glib-2.0`
+ AC_SUBST(GLIB_GENMARSHAL)
+ 
+-GOBJECT_INTROSPECTION_CHECK([0.9.12])
++# Forcibly disable introspection
++AM_CONDITIONAL([HAVE_INTROSPECTION], [0])
+ 
+ dnl ################################################################
+ dnl # Set up gtk-doc
+-- 
+2.7.1
+
