@@ -4,7 +4,7 @@
 #
 Name     : libnotify
 Version  : 0.7.6
-Release  : 2
+Release  : 3
 URL      : http://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.6.tar.xz
 Source0  : http://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.6.tar.xz
 Summary  : Notifications Library
