@@ -4,7 +4,7 @@
 #
 Name     : libnotify
 Version  : 0.7.7
-Release  : 4
+Release  : 5
 URL      : http://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.7.tar.xz
 Source0  : http://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.7.tar.xz
 Summary  : Notifications Library
@@ -13,6 +13,7 @@ License  : LGPL-2.1
 Requires: libnotify-bin
 Requires: libnotify-lib
 Requires: libnotify-doc
+Requires: libnotify-data
 BuildRequires : docbook-xml
 BuildRequires : gobject-introspection-dev
 BuildRequires : gtk-doc
@@ -30,9 +31,18 @@ BuildRequires : xmlto
 %package bin
 Summary: bin components for the libnotify package.
 Group: Binaries
+Requires: libnotify-data
 
 %description bin
 bin components for the libnotify package.
+
+
+%package data
+Summary: data components for the libnotify package.
+Group: Data
+
+%description data
+data components for the libnotify package.
 
 
 %package dev
@@ -40,6 +50,7 @@ Summary: dev components for the libnotify package.
 Group: Development
 Requires: libnotify-lib
 Requires: libnotify-bin
+Requires: libnotify-data
 Provides: libnotify-devel
 
 %description dev
@@ -57,6 +68,7 @@ doc components for the libnotify package.
 %package lib
 Summary: lib components for the libnotify package.
 Group: Libraries
+Requires: libnotify-data
 
 %description lib
 lib components for the libnotify package.
@@ -67,6 +79,7 @@ lib components for the libnotify package.
 
 %build
 export LANG=C
+export SOURCE_DATE_EPOCH=1491323513
 %configure --disable-static
 make V=1  %{?_smp_mflags}
 
@@ -78,6 +91,7 @@ export no_proxy=localhost
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
+export SOURCE_DATE_EPOCH=1491323513
 rm -rf %{buildroot}
 %make_install
 
@@ -88,16 +102,19 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 /usr/bin/notify-send
 
+%files data
+%defattr(-,root,root,-)
+/usr/lib64/girepository-1.0/Notify-0.7.typelib
+/usr/share/gir-1.0/*.gir
+
 %files dev
 %defattr(-,root,root,-)
 /usr/include/libnotify/notification.h
 /usr/include/libnotify/notify-enum-types.h
 /usr/include/libnotify/notify-features.h
 /usr/include/libnotify/notify.h
-/usr/lib64/*.so
-/usr/lib64/girepository-1.0/Notify-0.7.typelib
-/usr/lib64/pkgconfig/*.pc
-/usr/share/gir-1.0/*.gir
+/usr/lib64/libnotify.so
+/usr/lib64/pkgconfig/libnotify.pc
 
 %files doc
 %defattr(-,root,root,-)
@@ -120,4 +137,5 @@ rm -rf %{buildroot}
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/*.so.*
+/usr/lib64/libnotify.so.4
+/usr/lib64/libnotify.so.4.0.0
