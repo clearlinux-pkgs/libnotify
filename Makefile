@@ -1,5 +1,5 @@
 PKG_NAME := libnotify
-URL := http://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.7.tar.xz
+URL := https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.7.tar.xz
 
 
 include ../common/Makefile.common
