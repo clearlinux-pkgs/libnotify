@@ -4,10 +4,10 @@
 #
 Name     : libnotify
 Version  : 0.7.8
-Release  : 11
+Release  : 12
 URL      : https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.8.tar.xz
 Source0  : https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.8.tar.xz
-Summary  : Notifications Library
+Summary  : Library for sending desktop notifications
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: libnotify-bin = %{version}-%{release}
@@ -54,6 +54,7 @@ Requires: libnotify-lib = %{version}-%{release}
 Requires: libnotify-bin = %{version}-%{release}
 Requires: libnotify-data = %{version}-%{release}
 Provides: libnotify-devel = %{version}-%{release}
+Requires: libnotify = %{version}-%{release}
 
 %description dev
 dev components for the libnotify package.
@@ -93,7 +94,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1554504224
+export SOURCE_DATE_EPOCH=1557016685
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
