@@ -1,3 +1,4 @@
+libnotify.so.4:notify_closed_reason_get_type
 libnotify.so.4:notify_get_app_name
 libnotify.so.4:notify_get_server_caps
 libnotify.so.4:notify_get_server_info
