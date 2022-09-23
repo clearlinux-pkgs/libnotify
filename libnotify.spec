@@ -4,7 +4,7 @@
 #
 Name     : libnotify
 Version  : 0.8.1
-Release  : 19
+Release  : 20
 URL      : https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.1.tar.xz
 Source0  : https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.1.tar.xz
 Summary  : No detailed summary available
