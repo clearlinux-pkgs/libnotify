@@ -4,7 +4,7 @@
 #
 Name     : libnotify
 Version  : 0.8.1
-Release  : 21
+Release  : 22
 URL      : https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.1.tar.xz
 Source0  : https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.1.tar.xz
 Summary  : No detailed summary available
@@ -107,7 +107,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1658166125
+export SOURCE_DATE_EPOCH=1664158285
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -121,7 +121,7 @@ ninja -v -C builddir
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/libnotify
-cp %{_builddir}/libnotify-0.8.1/COPYING %{buildroot}/usr/share/package-licenses/libnotify/e60c2e780886f95df9c9ee36992b8edabec00bcc
+cp %{_builddir}/libnotify-%{version}/COPYING %{buildroot}/usr/share/package-licenses/libnotify/e60c2e780886f95df9c9ee36992b8edabec00bcc || :
 DESTDIR=%{buildroot} ninja -C builddir install
 
 %files
